@@ -147,11 +147,11 @@
                 </dd>
               </div>
               <div>
-                <dt class="sr-only">IR investigation modules in m365-ir-toolkit</dt>
+                <dt class="sr-only">IR investigation modules in the portable M365 skill</dt>
                 <dd>
-                  <strong>16</strong>
+                  <strong>27</strong>
                   <span>IR investigation modules</span>
-                  <em>m365-ir-toolkit</em>
+                  <em>portable M365 skill</em>
                 </dd>
               </div>
               <div>
@@ -293,12 +293,47 @@
             <p class="mono-label"><span class="prompt">></span>ls ./projects<span class="rule" aria-hidden="true"></span></p>
             <h2 id="work-title">Things I built and can point at</h2>
             <p class="standfirst">
-              Three public repositories. Two internal builds described at the level of design decisions, not screenshots. The M365 modules are archived on GitHub; the ideas still stand.
+              Three public repositories, two of them archived. The live M365 IR work is a private portable skill — described here the same way as the other internal builds: design decisions, not source.
             </p>
           </header>
 
           <div class="project-grid">
             <article class="card project featured">
+              <div class="project-top">
+                <div>
+                  <h3>M365 IR Portable</h3>
+                  <p class="kind">Claude skill · DFIR · PowerShell 7</p>
+                </div>
+                <span class="badge badge-private">Private</span>
+              </div>
+              <p class="summary">
+                A Claude skill and pwsh toolkit for Microsoft 365 incident response, built to run from macOS against a live tenant. Successor to the archived public module and runbook. Not released; the constraints are the interesting part.
+              </p>
+              <ul class="highlights">
+                <li>27 investigation modules; read-only by default; write operations live in one module behind an explicit escalation gate</li>
+                <li>UAL collection that pages until the service returns nothing, recovers from the 50k-record session ceiling, and will not treat a short page as complete</li>
+                <li>Retention clock: states what is still retained and names the range already gone, before any collection runs</li>
+                <li data-extra hidden>Preservation mode: unfiltered collect-now with a SHA-256 manifest, no analysis, no outbound enrichment — for when the deadline is the constraint</li>
+                <li data-extra hidden>An empty result is a claim. Checks that cannot run report unverified, not pass. A control that reports success while seeing nothing is worse than no control</li>
+                <li data-extra hidden>Pester against a mocked tenant, including regressions for paging, false-clean checks, and identifier typos that read as "no activity"</li>
+                <li data-extra hidden>External DNS integrity (SPF, DKIM, DMARC, MX) — the mail-auth surface that generates no audit-log events at all</li>
+                <li data-extra hidden>Sanitization tests fail the build if an environment-specific identifier appears in the tree. That is what keeps a private IR skill describable</li>
+              </ul>
+              <button class="more-btn" type="button" data-more aria-expanded="false">+ 5 more</button>
+              <ul class="stack">
+                <li>PowerShell 7</li>
+                <li>Microsoft Graph</li>
+                <li>Exchange Online</li>
+                <li>Pester</li>
+                <li>Claude skill</li>
+              </ul>
+              <div class="project-foot">
+                <span>2026</span>
+                <span>Not publicly released</span>
+              </div>
+            </article>
+
+            <article class="card project">
               <div class="project-top">
                 <div>
                   <h3>M365IR</h3>

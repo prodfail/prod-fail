@@ -114,7 +114,7 @@
     "@type": "Person",
     name: "Joshua Roark",
     alternateName: ["Josh Roark", "JR Roark"],
-    jobTitle: "Security Engineer",
+    jobTitle: "Security / IT Analyst",
     worksFor: { "@type": "Organization", name: "Nymbl Systems" },
     alumniOf: [
       {

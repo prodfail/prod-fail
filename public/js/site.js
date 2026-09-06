@@ -85,8 +85,8 @@
 
   moreBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const list = btn.previousElementSibling;
-      const extra = list?.querySelectorAll("[data-extra]");
+      const card = btn.closest(".project") || btn.parentElement;
+      const extra = card?.querySelectorAll("[data-extra]");
       const open = btn.getAttribute("aria-expanded") === "true";
       extra?.forEach((li) => {
         li.hidden = open;
